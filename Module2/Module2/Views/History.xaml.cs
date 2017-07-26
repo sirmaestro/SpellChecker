@@ -23,11 +23,9 @@ namespace Module2.Views
 
         async void Handle_ClickedAsync(object sender, System.EventArgs e)
         {
-            loading.IsRunning = true;
             List<HistoryModel> historyInfo = await AzureManager.AzureManagerInstance.GetHistoryInfo();
             historyInfo.Reverse();
             HistoryList.ItemsSource = historyInfo;
-            loading.IsRunning = false;
         }
 
         async void OnRefresh(object sender, EventArgs e)

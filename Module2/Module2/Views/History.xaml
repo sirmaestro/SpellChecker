@@ -29,7 +29,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <ActivityIndicator x:Name="loading" IsRunning="false" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
