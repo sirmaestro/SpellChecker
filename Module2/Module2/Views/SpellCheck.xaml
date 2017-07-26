@@ -4,7 +4,7 @@
              x:Class="Module2.Views.SpellCheck"
              Title="Spell Checker">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout VerticalOptions="CenterAndExpand">
             <!--<Label Text="Spell Check"/>-->
             <Entry x:Name="CheckWord" Placeholder="Enter a word" HorizontalTextAlignment="Center"/>
             <Button Text="Check Word!" Clicked="OnCheckClicked" BackgroundColor="RoyalBlue" TextColor="White"/>

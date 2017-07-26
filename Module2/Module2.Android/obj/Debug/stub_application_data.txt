@@ -1,2 +1,0 @@
-android.app.Application
-Module2.Android
