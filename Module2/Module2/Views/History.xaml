@@ -33,15 +33,15 @@
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="50*"/>
-                                    <ColumnDefinition Width="50*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="30*"/>
                                 </Grid.ColumnDefinitions>
-                                <StackLayout Grid.Column="0" Orientation="Vertical" Margin="20,0,0,5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                    <Label Text="{Binding Unchecked, StringFormat='Unchecked: {0:G}'}" VerticalOptions="CenterAndExpand" TextColor="Red"/>
-                                    <Label Text="{Binding Checked, StringFormat='Checked: {0:G}'}" VerticalOptions="CenterAndExpand" TextColor="Green"/>
+                                <StackLayout Grid.Column="0" Margin="20,0,0,0" Orientation="Vertical" VerticalOptions="CenterAndExpand">
+                                    <Label Text="{Binding Unchecked, StringFormat='Unchecked: {0:G}'}" TextColor="Red"/>
+                                    <Label Text="{Binding Checked, StringFormat='Checked: {0:G}'}" TextColor="Green"/>
                                 </StackLayout>
-                                <StackLayout Grid.Column="1" Orientation="Vertical" >
-                                    <Label Text="{Binding DateDisplay, StringFormat='Date: {0:G}'}" HorizontalOptions="End" VerticalOptions="CenterAndExpand"/>
+                                <StackLayout Grid.Column="1" Orientation="Vertical" HorizontalOptions="End" VerticalOptions="CenterAndExpand">
+                                    <Label Text="{Binding DateDisplay, StringFormat='Date: {0:G}'}"/>
                                 </StackLayout>
                             </Grid>
                         </ViewCell>
