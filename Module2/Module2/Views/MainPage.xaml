@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Module2.Views.MainPage"
+            xmlns:local="clr-namespace:Module2.Views">
+            
+  <!--Pages can be added as references or inline-->
+    <local:SpellCheck />
+    <local:History />
+    <!--<ContentPage Title="Main">
+        <x:Arguments>
+            <local:SpellCheck />
+        </x:Arguments>
+    </ContentPage>-->
+    <!--<ContentPage Title="Spell Check">
+        <x:Arguments>
+            <local:SpellCheck/>
+        </x:Arguments>
+    </ContentPage>
+    <ContentPage Title="Tab 2" />
+  <ContentPage Title="Tab 3" />-->
+</TabbedPage>

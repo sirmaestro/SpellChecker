@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Module2.Views.History"
+             Title="History">
+    
+    <!--<ListView x:Name="HistoryView">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell Text="{Binding DisplayName}" />
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>-->
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="Refresh Data" TextColor="White" BackgroundColor="Green" Clicked="Handle_ClickedAsync" />
+            <ListView x:Name="HistoryList" HasUnevenRows="false">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical">
+                                <Label Text="{Binding Unchecked, StringFormat='Unchecked: {0:G}'}" Margin="10,0,0,0" VerticalTextAlignment="Center" />
+                                <Label Text="{Binding Checked, StringFormat='Checked: {0:G}'}" Margin="10,0,0,0" VerticalTextAlignment="Center" />
+                            </StackLayout>
+                            <Label Text="{Binding DateDisplay, StringFormat='Date: {0:G}'}" HorizontalTextAlignment="End" />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ActivityIndicator x:Name="loading" IsRunning="false" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
