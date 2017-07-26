@@ -21,8 +21,17 @@ namespace Module2.Views
 			InitializeComponent ();
 		}
 
-        async void Handle_ClickedAsync(object sender, System.EventArgs e)
+        //async void Handle_ClickedAsync(object sender, System.EventArgs e)
+        //{
+        //    List<HistoryModel> historyInfo = await AzureManager.AzureManagerInstance.GetHistoryInfo();
+        //    historyInfo.Reverse();
+        //    HistoryList.ItemsSource = historyInfo;
+        //}
+
+        protected override async void OnAppearing()
         {
+            base.OnAppearing();
+
             List<HistoryModel> historyInfo = await AzureManager.AzureManagerInstance.GetHistoryInfo();
             historyInfo.Reverse();
             HistoryList.ItemsSource = historyInfo;

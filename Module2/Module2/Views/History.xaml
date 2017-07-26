@@ -13,19 +13,38 @@
     </ListView>-->
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="Refresh Data" TextColor="White" BackgroundColor="Green" Clicked="Handle_ClickedAsync" />
+            <!--<Button Text="Refresh Data" TextColor="White" BackgroundColor="Green" Clicked="Handle_ClickedAsync" />-->
             <ListView x:Name="HistoryList" HasUnevenRows="false" IsPullToRefreshEnabled="True" Refreshing="OnRefresh">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Unchecked, Checked, StringFormat='Unchecked: {0:G} &#x0a; Checked: {0:G}'}" Detail="{Binding DateDisplay, StringFormat='Date: {0:G}'}" TextColor="Black"/>
-                        <!--<ViewCell>
-                            
-                            <StackLayout Orientation="Vertical">
-                                <Label Text="{Binding Unchecked, Checked, StringFormat='Unchecked: {0:G} &#x0a;Checked: {0:G}'}" Margin="10,0,0,0"/>
-                                <Label Text="{Binding Checked, StringFormat='Checked: {0:G}'}" Margin="10,0,0,0"/>
-                            </StackLayout>
-                            <Label Text="{Binding DateDisplay, StringFormat='Date: {0:G}'}" HorizontalTextAlignment="End" />
-                        </ViewCell>-->
+                        <!--<TextCell  Detail="{Binding DateDisplay, StringFormat='Date: {0:G}'}" TextColor="Black">
+                            <TextCell.Text>
+                                <MultiBinding StringFormat="Unchecked: {0:G} &#x0a; Checked: {1:G}">
+                                    <Binding Path="Unchecked"/>
+                                    <Binding Path="Checked"/>
+                                </MultiBinding>
+                            </TextCell.Text>
+                        </TextCell>-->
+                        <!--<TextCell Text="{Binding Unchecked, Checked, StringFormat='Unchecked: {0:G} &#x0a; Checked: {1:G}'}" Detail="{Binding DateDisplay, StringFormat='Date: {0:G}'}" TextColor="Black"/>-->
+                        <!--Text="{Binding Unchecked, Checked, StringFormat='Unchecked: {0:G} &#x0a; Checked: {0:G}'}"-->
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50*"/>
+                                    <ColumnDefinition Width="50*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Grid.Column="0" Orientation="Vertical" Margin="20,0,0,5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                    <Label Text="{Binding Unchecked, StringFormat='Unchecked: {0:G}'}" VerticalOptions="CenterAndExpand" TextColor="Red"/>
+                                    <Label Text="{Binding Checked, StringFormat='Checked: {0:G}'}" VerticalOptions="CenterAndExpand" TextColor="Green"/>
+                                </StackLayout>
+                                <StackLayout Grid.Column="1" Orientation="Vertical" >
+                                    <Label Text="{Binding DateDisplay, StringFormat='Date: {0:G}'}" HorizontalOptions="End" VerticalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
