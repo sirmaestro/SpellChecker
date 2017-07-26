@@ -25,9 +25,20 @@ namespace Module2.Views
         {
             loading.IsRunning = true;
             List<HistoryModel> historyInfo = await AzureManager.AzureManagerInstance.GetHistoryInfo();
-
+            historyInfo.Reverse();
             HistoryList.ItemsSource = historyInfo;
             loading.IsRunning = false;
+        }
+
+        async void OnRefresh(object sender, EventArgs e)
+        {
+            var list = (ListView)sender;
+            //put your refreshing logic here
+            List<HistoryModel> historyInfo = await AzureManager.AzureManagerInstance.GetHistoryInfo();
+            historyInfo.Reverse();
+            HistoryList.ItemsSource = historyInfo;
+            //make sure to end the refresh state
+            list.IsRefreshing = false;
         }
     }
 }
