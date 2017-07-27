@@ -19,6 +19,7 @@ namespace Module2.Views
         public History ()
 		{
 			InitializeComponent ();
+            base.OnAppearing();
 		}
 
         //async void Handle_ClickedAsync(object sender, System.EventArgs e)
