@@ -36,6 +36,7 @@ namespace Module2.Views
                 {
                     //IsProcessing = true;
                     loading.IsRunning = true;
+                    string tempword = CheckWord.Text;
 
                     var spellCheckResult = await SpellCheckService.SpellCheckTextAsync(CheckWord.Text);
                     var proofCheckResult = await SpellCheckService.ProofCheckTextAsync(CheckWord.Text);
@@ -43,21 +44,36 @@ namespace Module2.Views
                     {
                         ReplaceWord.Text = CheckWord.Text.Replace(flaggedToken.Token, flaggedToken.Suggestions.FirstOrDefault().Suggestion);
                     }
-                    if ((ReplaceWord.Text == "Suggested replacement") || (ReplaceWord.Text == "Error please try again with differnent word"))
+                    if (!spellCheckResult.FlaggedTokens.Any())
                     {
                         foreach (var flaggedToken in proofCheckResult.FlaggedTokens)
                         {
                             ReplaceWord.Text = CheckWord.Text.Replace(flaggedToken.Token, flaggedToken.Suggestions.FirstOrDefault().Suggestion);
                         }
-                        if ((ReplaceWord.Text == "Suggested replacement") || (ReplaceWord.Text == "Error please try again with differnent word"))
-                        {
-                            ReplaceWord.Text = "Error please try again with differnent word";
-                        }
                     }
-                    if ((ReplaceWord.Text != "Suggested replacement") && (ReplaceWord.Text != "Error please try again with differnent word"))
+                    if ((!proofCheckResult.FlaggedTokens.Any()) && (!spellCheckResult.FlaggedTokens.Any()))
+                    {
+                        ReplaceWord.Text = "Error no replacement word, please try again with a different word";
+                    }
+                    else
                     {
                         await postWordsAsync();
                     }
+                    //if ((ReplaceWord.Text == "Suggested replacement") || (ReplaceWord.Text == "Error please try again with differnent word"))
+                    //{
+                    //    foreach (var flaggedToken in proofCheckResult.FlaggedTokens)
+                    //    {
+                    //        ReplaceWord.Text = CheckWord.Text.Replace(flaggedToken.Token, flaggedToken.Suggestions.FirstOrDefault().Suggestion);
+                    //    }
+                    //    if ((ReplaceWord.Text == "Suggested replacement") || (ReplaceWord.Text == "Error please try again with differnent word"))
+                    //    {
+                    //        ReplaceWord.Text = "Error please try again with differnent word";
+                    //    }
+                    //}
+                    //if ((ReplaceWord.Text != "Suggested replacement") && (ReplaceWord.Text != "Error please try again with differnent word"))
+                    //{
+                    //    await postWordsAsync();
+                    //}
 
                     loading.IsRunning = false;
                     //IsProcessing = false;
