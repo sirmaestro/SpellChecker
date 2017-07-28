@@ -4,10 +4,12 @@
              x:Class="Module2.Views.SpellCheck"
              Title="Spell Checker">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="CenterAndExpand">
+        <StackLayout VerticalOptions="CenterAndExpand" Padding="20,0,20,0">
             <!--<Label Text="Spell Check"/>-->
+            <Label Text="Please enter a word"/>
             <Entry x:Name="CheckWord" Placeholder="Enter a word" HorizontalTextAlignment="Center"/>
             <Button Text="Check Word!" Clicked="OnCheckClicked" BackgroundColor="RoyalBlue" TextColor="White"/>
+            <Label Text="Our suggestion is:" Margin="0,10,0,0"/>
             <Label x:Name="ReplaceWord" Text="Suggested replacement" HorizontalTextAlignment="Center" FontSize="30"/>
             <ActivityIndicator x:Name="loading" IsRunning="false" />
         </StackLayout>
